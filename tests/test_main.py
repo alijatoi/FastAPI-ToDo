@@ -1,7 +1,13 @@
-from fastapi.testclient import TestClient
-from main import app  # Assuming your FastAPI app is in the 'main.py' file
+import sys
+import os
 
-client = TestClient(app)
+# Add the root directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from fastapi.testclient import TestClient
+import main  # Now this should work
+
+client = TestClient(main.app)
 
 def test_read_main():
     response = client.get("/")
