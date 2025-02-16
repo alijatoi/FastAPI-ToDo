@@ -1,0 +1,5 @@
+fastapi==0.115.8       # Replace with the latest version or a stable version you're using
+uvicorn[standard]==0.34.0 # Uvicorn server with extras like 'watchgod', websockets, etc.
+SQLAlchemy==2.0.38       # Replace with your current SQLAlchemy version or latest stable version
+pydantic==2.10.6          # Replace with your current version (if using FastAPI with Pydantic)
+databases[sqlite]==0.9.0  # Optional: Async support with SQLAlchemy (only if using async engine)
