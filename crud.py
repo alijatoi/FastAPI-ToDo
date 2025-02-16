@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 import models, schemas
+
 # Create a new to-do
 def create_todo(db: Session, todo: schemas.ToDoCreate):
     db_todo = models.ToDo(
@@ -12,13 +13,16 @@ def create_todo(db: Session, todo: schemas.ToDoCreate):
     db.refresh(db_todo)
     return db_todo
 
+
 # Get all to-dos
 def get_todos(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.ToDo).offset(skip).limit(limit).all()
 
+
 # Get a specific to-do by ID
 def get_todo_by_id(db: Session, todo_id: int):
     return db.query(models.ToDo).filter(models.ToDo.id == todo_id).first()
+
 
 # Update a to-do
 def update_todo(db: Session, todo_id: int, todo: schemas.ToDoUpdate):
@@ -31,6 +35,7 @@ def update_todo(db: Session, todo_id: int, todo: schemas.ToDoUpdate):
     db.commit()
     db.refresh(db_todo)
     return db_todo
+
 
 # Delete a to-do
 def delete_todo(db: Session, todo_id: int):

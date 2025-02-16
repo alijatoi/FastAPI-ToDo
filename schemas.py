@@ -6,11 +6,13 @@ class ToDoCreate(BaseModel):
     description: str
     completed: bool = False
 
+
 # Schema for updating a to-do
 class ToDoUpdate(BaseModel):
     title: str
     description: str
     completed: bool = False
+
 
 # Schema for reading a to-do
 class ToDo(BaseModel):

@@ -5,8 +5,8 @@ Base = declarative_base()
 
 # To-Do model
 class ToDo(Base):
-    __tablename__ = 'todos'
-    
+    __tablename__ = "todos"
+
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     description = Column(String)
