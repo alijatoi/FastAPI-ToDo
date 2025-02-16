@@ -31,21 +31,7 @@ jobs:
           pip install black
           black .
 
-      # Step to check if any test files exist
-      - name: Check if test files exist
-        id: test_check
-        run: |
-          if [ -z "$(find . -name 'test_*.py')" ]; then
-            echo "No test files found, skipping pytest."
-            echo "run_tests=false" >> $GITHUB_ENV
-          else
-            echo "Test files found, running pytest."
-            echo "run_tests=true" >> $GITHUB_ENV
-          fi
-
-      # Step to run tests, only if test files exist
       - name: Run tests
-        if: env.run_tests == 'true'
         run: |
           pip install pytest
-          pytest
+          pytest tests/  # Run tests in the 'tests' folder (if applicable)
